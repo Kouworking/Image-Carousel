@@ -14,7 +14,7 @@ CREATE TABLE photos (
   id int NOT NULL AUTO_INCREMENT,
   photo_url
   PRIMARY KEY (ID), REFERENCES listing (id),
-  FOREIGN KEY(listing_id) 
+  FOREIGN KEY(listing_id)
 );
 
 -- INSERT INTO transactions (id, amount, description, date) VALUES (1, -4.55, "EQUATOR", "2017-08-02");
