@@ -19,7 +19,8 @@
   "scripts": {
     "test": "jest",
     "watch:build": "webpack -d --watch",
-    "start": "nodemon server/index.js"
+    "start": "nodemon server/index.js",
+    "seed": "node db/seed.js"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
@@ -48,13 +49,17 @@
     "axios-mock-adapter": "^1.17.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "i": "^0.3.6",
     "materialize-css": "^1.0.0-rc.2",
     "moment": "^2.24.0",
     "mongoose": "^5.7.3",
     "morgan": "^1.9.1",
+    "mysql": "^2.18.1",
     "normalize.css": "^8.0.1",
     "react": "^16.10.1",
-    "react-dom": "^16.10.1"
+    "react-dom": "^16.10.1",
+    "wget": "0.0.1"
   },
   "version": "1.0.0",
   "main": ".babelrc.js",

@@ -4,17 +4,18 @@ CREATE DATABASE carousel;
 
 USE carousel;
 
-CREATE TABLE listing (
-  id int NOT NULL AUTO_INCREMENT,
+CREATE TABLE listings (
+  listing_id int NOT NULL AUTO_INCREMENT,
   listing_name VARCHAR (255),
-  PRIMARY KEY (ID)
+  PRIMARY KEY (listing_id)
 );
 
 CREATE TABLE photos (
-  id int NOT NULL AUTO_INCREMENT,
-  photo_url
-  PRIMARY KEY (ID), REFERENCES listing (id),
-  FOREIGN KEY(listing_id)
+  photo_id int NOT NULL AUTO_INCREMENT,
+  photo_url VARCHAR(2083),
+  listing_id int NOT NULL,
+  PRIMARY KEY (photo_id), 
+  FOREIGN KEY(listing_id) REFERENCES listings (listing_id)
 );
 
 -- INSERT INTO transactions (id, amount, description, date) VALUES (1, -4.55, "EQUATOR", "2017-08-02");
