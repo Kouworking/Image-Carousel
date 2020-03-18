@@ -19,6 +19,14 @@ const insertListing = (callback) => {
   });
 };
 
+const insertPhotos = (i, j, callback) => {
+  const queryStr = `INSERT INTO photos (photo_url, listing_id) VALUES ('https://carousel-imgs.s3-us-west-1.amazonaws.com/${i}', '${j}')`
+  connection.query(queryStr, (err, data) => {
+    if (err) { callback(err, null); }
+    else { callback(null, data); }
+  });
+};
+
 const getAllListings = callback => {
   const queryStr = 'SELECT * FROM listings';
   connection.query(queryStr, (err, data) => {
@@ -29,5 +37,5 @@ const getAllListings = callback => {
 
 
 module.exports = {
-  connection, insertListing, getAllListings
+  connection, insertListing, getAllListings, insertPhotos
 };

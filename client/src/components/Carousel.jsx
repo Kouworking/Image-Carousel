@@ -7,7 +7,9 @@ class Carousel extends React.Component {
 
   render() {
     return (
-      <div>Hello from Carousel!</div>
+      <div>Hello from Carousel!
+      <img src="https://carousel-imgs.s3-us-west-1.amazonaws.com/26" />
+      </div>
     )
   }
 }
