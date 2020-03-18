@@ -11,8 +11,8 @@ describe('App Tests', () => {
     expect(wrapper).toExist();
   });
 
-  // test('should render the Banner component on the screen', () => {
-  //   const wrapper = shallow(<Banner />);
-  //   expect(wrapper).toExist();
-  // });
+  test('should render the Banner component on the screen', () => {
+    const wrapper = shallow(<Banner />);
+    expect(wrapper).toExist();
+  });
 });
