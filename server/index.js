@@ -19,6 +19,18 @@ app.get('/api/listings', (req, res) => {
       console.log(err);
       res.sendStatus(400);
     } else {
+      console.log(req.body);
+      res.send(data);
+    }
+  })
+});
+
+app.get('/api/photos', (req, res) => {
+  db.getAllPhotos((err, data) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(400);
+    } else {
       res.send(data);
     }
   })

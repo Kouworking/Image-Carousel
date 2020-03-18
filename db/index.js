@@ -35,7 +35,15 @@ const getAllListings = callback => {
   });
 }
 
+const getAllPhotos = callback => {
+  const queryStr = 'SELECT * FROM photos WHERE listing_id = "1"';
+  connection.query(queryStr, (err, data) => {
+    if (err) { callback(err, null); }
+    else { callback(null, data); }
+  });
+};
+
 
 module.exports = {
-  connection, insertListing, getAllListings, insertPhotos
+  connection, insertListing, getAllListings, insertPhotos, getAllPhotos
 };
