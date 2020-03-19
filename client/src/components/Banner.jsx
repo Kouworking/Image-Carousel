@@ -12,7 +12,9 @@ class Banner extends React.Component {
   render() {
 
     return (
-      <div>
+      <div onClick={e => {
+        this.props.showModal();
+      }}>
         <img src={this.props.mainPhoto} onClick={this.toggleLightBox} />
         {/* {this.state.showLightBox ? console.log('toggle') : console.log('like nothing happened')}} */}
       </div>

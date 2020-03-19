@@ -12,6 +12,7 @@ describe('Banner Tests', () => {
     console.log('shallow Banner HTML', wrapper.debug());
   });
 
+
   // test('should render an image element', () => {
   // const wrapper = mount(<Banner />);
   // expect(wrapper.contains(<img src={props.mainPhoto} />)).to.equal(true);

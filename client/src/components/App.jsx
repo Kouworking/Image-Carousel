@@ -45,7 +45,7 @@ class App extends React.Component {
     });
   };
 
-  
+
 
   render() {
     if (this.state.photos.length === 0) {
@@ -53,11 +53,12 @@ class App extends React.Component {
     } else {
       return (
         <Container>
-          <Banner mainPhoto={this.state.photos[0].photo_url} photos={this.state.photos} />
-          <button onClick={e => {
-            this.showModal();
-          }}>Show Popup</button>
-          <Modal onClose={this.showModal} show={this.state.show}>How does .props.children work?</Modal>
+          <Banner
+            photos={this.state.photos}
+            showModal={this.showModal}
+            mainPhoto={this.state.photos[0].photo_url}
+          />
+          <Modal onClose={this.showModal} show={this.state.show}>Place photos here!</Modal>
         </Container >
       )
     }
