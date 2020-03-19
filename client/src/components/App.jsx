@@ -54,11 +54,15 @@ class App extends React.Component {
       return (
         <Container>
           <Banner
-            photos={this.state.photos}
             showModal={this.showModal}
             mainPhoto={this.state.photos[0].photo_url}
           />
-          <Modal onClose={this.showModal} show={this.state.show}>Place photos here!</Modal>
+          <Modal
+            photos={this.state.photos}
+            onClose={this.showModal}
+            show={this.state.show}>
+            Place photos here!
+          </Modal>
         </Container >
       )
     }

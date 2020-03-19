@@ -1,8 +1,10 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import Slider from './Slider.jsx';
 
 const Darken = styled.div`
-  position: fixed;
+  display: flex;
+  position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
@@ -15,25 +17,17 @@ const Darken = styled.div`
 
 const InnerBox = styled.div`
   position: absolute;
-  left: 25%;
-  right: 25%;
-  top: 25%;
+  display: in-line flex;
+  left: 0%;
+  right: 0%;
+  top: 0%;
   bottom: 25%;
   margin: auto;
   background: white;
 `;
 
-const Box = styled.div`
-width: 500px;
-  background: white;
-  border: 1px solid #ccc;
-  transition: 1.1s ease-out;
-  box-shadow: 
-    -2rem 2rem 2rem rgba(black, 0.2);
-  filter: blur(0);
-  transform: scale(1);  
-  opacity: 1;
-  visibility: visible;
+const Wrapper = styled.div`
+  display: flex;
 `;
 
 class Modal extends React.Component {
@@ -48,20 +42,21 @@ class Modal extends React.Component {
 
 
   render() {
+    const { photos } = this.props;
     if (!this.props.show) {
       return null;
     }
     return (
       <Darken>
         <InnerBox>
-          <div>{this.props.children}</div>
-          <div>
-            <button onClick={e => {
-              this.closeModal(e);
-            }}>
-              Close Modal
+          <button onClick={e => { this.closeModal(e); }}>
+            Exit Gallery
           </button>
-          </div>
+          <div>{this.props.children}</div>
+          <Wrapper>
+            {photos.map((photo, index) =>
+              <Slider photo={photo} key={index} />)}
+          </Wrapper>
         </InnerBox>
       </Darken>
     )

@@ -16,16 +16,8 @@ class Banner extends React.Component {
         this.props.showModal();
       }}>
         <img src={this.props.mainPhoto} onClick={this.toggleLightBox} />
-        {/* {this.state.showLightBox ? console.log('toggle') : console.log('like nothing happened')}} */}
       </div>
     );
-
-    // return (
-    //   <div>
-    //     <h1>hihi</h1>
-    //     <button onClick={this.toggleLightBox}>show popup</button>
-    //   </div>
-    // )
   }
 }
 
