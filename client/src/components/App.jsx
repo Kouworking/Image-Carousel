@@ -17,9 +17,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      photos: []
+      photos: [],
+      show: false
     }
     this.getPhotos = this.getPhotos.bind(this);
+    this.showModal = this.showModal.bind(this);
   }
 
   componentDidMount() {
@@ -37,6 +39,14 @@ class App extends React.Component {
     })
   }
 
+  showModal(e) {
+    this.setState({
+      show: !this.state.show
+    });
+  };
+
+  
+
   render() {
     if (this.state.photos.length === 0) {
       return <div>Empty State</div>
@@ -44,7 +54,10 @@ class App extends React.Component {
       return (
         <Container>
           <Banner mainPhoto={this.state.photos[0].photo_url} photos={this.state.photos} />
-          <Modal />
+          <button onClick={e => {
+            this.showModal();
+          }}>Show Popup</button>
+          <Modal onClose={this.showModal} show={this.state.show}>How does .props.children work?</Modal>
         </Container >
       )
     }
