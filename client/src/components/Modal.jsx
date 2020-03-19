@@ -27,7 +27,7 @@ const InnerBox = styled.div`
 `;
 
 const Wrapper = styled.div`
-  position: fixed;
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
