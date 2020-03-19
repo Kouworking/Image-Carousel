@@ -2,6 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import styled, { css } from 'styled-components';
 import Banner from './Banner.jsx';
+import Modal from './Modal.jsx';
 
 const Container = styled.div`
   align-items: center;
@@ -43,7 +44,8 @@ class App extends React.Component {
       return (
         <Container>
           <Banner mainPhoto={this.state.photos[0].photo_url} photos={this.state.photos} />
-        </Container>
+          <Modal />
+        </Container >
       )
     }
   }

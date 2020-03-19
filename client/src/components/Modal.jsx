@@ -13,7 +13,7 @@ const Darken = styled.div`
   background-color: rgba(0,0,0, 0.5);
 `;
 
-const innerBox = styled.div`
+const InnerBox = styled.div`
   position: absolute;
   left: 25%;
   right: 25%;
@@ -23,19 +23,16 @@ const innerBox = styled.div`
   background: white;
 `;
 
-class LightBox extends React.Component {
+class Modal extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    <Darken>
-      <innerBox>
-        <h1>{this.props.text}</h1>
-      </innerBox>
-    </Darken>
+    return (
+      <div>Modal!</div>
+    )
   }
-
 }
 
-export default LightBox;
+export default Modal;
