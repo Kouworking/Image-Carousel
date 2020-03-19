@@ -16,8 +16,8 @@ const Darken = styled.div`
 `;
 
 const InnerBox = styled.div`
-  position: absolute;
   display: in-line flex;
+  position: fixed;
   left: 0%;
   right: 0%;
   top: 0%;
@@ -28,6 +28,8 @@ const InnerBox = styled.div`
 
 const Wrapper = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 class Modal extends React.Component {
@@ -53,6 +55,9 @@ class Modal extends React.Component {
             Exit Gallery
           </button>
           <div>{this.props.children}</div>
+          <div>
+            <img src={photos[0].photo_url} />
+          </div>
           <Wrapper>
             {photos.map((photo, index) =>
               <Slider photo={photo} key={index} />)}

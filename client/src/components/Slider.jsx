@@ -2,8 +2,8 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 const Card = styled.div`
-  flex: 20%;
-  padding: 5px;
+
+  padding: 0px;
 `;
 
 class Slider extends React.Component {
@@ -15,7 +15,8 @@ class Slider extends React.Component {
     const samplePhoto = this.props.photo.photo_url;
     return (
       <Card>
-        <img src={samplePhoto} />
+        <img src={samplePhoto}
+          width="200" />
       </Card>
     )
   }
