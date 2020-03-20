@@ -22,6 +22,7 @@ class App extends React.Component {
     }
     this.getPhotos = this.getPhotos.bind(this);
     this.showModal = this.showModal.bind(this);
+    
   }
 
   componentDidMount() {
@@ -44,8 +45,6 @@ class App extends React.Component {
       show: !this.state.show
     });
   };
-
-
 
   render() {
     if (this.state.photos.length === 0) {

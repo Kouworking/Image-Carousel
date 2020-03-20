@@ -45,11 +45,36 @@ class Modal extends React.Component {
     this.nextPhoto = this.nextPhoto.bind(this);
     this.previousPhoto = this.previousPhoto.bind(this);
     this.clickPhoto = this.clickPhoto.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyPress);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyPress, false);
+  }
+
+  handleKeyPress(e) {
+    if (e.keyCode === 39) { this.nextPhoto(e); }
+    if (e.keyCode === 37) { this.previousPhoto(e); }
+    if (e.keyCode === 27) { this.closeModal(e); }
   }
 
   closeModal(e) {
     this.props.onClose && this.props.onClose(e);
   }
+
+  previousPhoto(e) {
+    e.preventDefault();
+    if (this.state.mainCard === 0) {
+      this.setState({ mainCard: this.props.photos.length });
+    }
+    this.setState(prevState => {
+      return { mainCard: prevState.mainCard - 1 }
+    });
+  };
 
   nextPhoto(e) {
     e.preventDefault();
@@ -62,25 +87,9 @@ class Modal extends React.Component {
     }
   };
 
-  previousPhoto(e) {
-    e.preventDefault();
-    if (this.state.mainCard === 0) {
-      const galleryLength = this.props.photos.length;
-      this.setState({ mainCard: galleryLength });
-    }
-
-    this.setState(prevState => {
-      return { mainCard: prevState.mainCard - 1 }
-    });
-  };
-
   clickPhoto(cardNum) {
-    console.log('Photo Clicked!');
-    this.setState({
-      mainCard: cardNum
-    })
+    this.setState({ mainCard: cardNum });
   }
-
 
   render() {
     const { photos } = this.props;
@@ -89,7 +98,7 @@ class Modal extends React.Component {
       return null;
     }
     return (
-      <Darken>
+      <Darken >
         <InnerBox className="inner-box">
           <button onClick={e => { this.closeModal(e); }}>
             Exit Gallery
