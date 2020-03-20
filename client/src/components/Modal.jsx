@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import Slider from './Slider.jsx';
+import Card from './Card.jsx';
+import AllCards from './AllCards.jsx';
 
 const Darken = styled.div`
   display: flex;
@@ -27,21 +28,27 @@ const InnerBox = styled.div`
 `;
 
 const Wrapper = styled.div`
-  position: absolute;
+  position: relative;
+  display: flex;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StyleAllCards = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  position: relative;
+  z-index: 2;
 `;
 
-const CurrentCard = styled(Wrapper)`
-  position: relative;
-  margin: 20px;
+const CurrentCard = styled.div`
+  margin: 0px;
   width: 200px;
   height: 150px;
   border: 5px solid blue;
-  z-index: 2;
-  left: 17%;
+  z-index: 3;
 `;
 
 const ExtraSpace = styled.div`
@@ -107,9 +114,7 @@ class Modal extends React.Component {
             <img src={mainCard} />
           </div>
           <Wrapper className="slider-wrapper">
-            <CurrentCard className="sweetbabyjesuis"></CurrentCard>
-            {photos.map((photo, index) =>
-              <Slider photo={photo} key={index} />)}
+            <AllCards photos={photos} mainCard={this.state.mainCard} />
           </Wrapper>
         </InnerBox>
       </Darken>
