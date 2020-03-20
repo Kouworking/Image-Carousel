@@ -68,12 +68,14 @@ class Modal extends React.Component {
 
   previousPhoto(e) {
     e.preventDefault();
+    const mainCard = this.props.photos[this.state.mainCard].photo_url;
     if (this.state.mainCard === 0) {
-      this.setState({ mainCard: this.props.photos.length });
+      this.setState({ mainCard: this.props.photos.length - 1 });
+    } else {
+      this.setState(prevState => {
+        return { mainCard: prevState.mainCard - 1 }
+      });
     }
-    this.setState(prevState => {
-      return { mainCard: prevState.mainCard - 1 }
-    });
   };
 
   nextPhoto(e) {
