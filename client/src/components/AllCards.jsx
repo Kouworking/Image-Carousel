@@ -16,11 +16,11 @@ class AllCards extends React.Component {
   }
 
   render() {
-    const { photos, mainCard } = this.props;
+    const { photos, mainCard, clickPhoto } = this.props;
     return (
       <Gallery className="all-cards-wrapper">
         {photos.map((photo, index) =>
-          <Card photo={photo} key={index} i={index} mainCard={mainCard} />)}
+          <Card photo={photo} key={index} i={index} mainCard={mainCard} clickPhoto={clickPhoto} />)}
       </Gallery>
     );
   }

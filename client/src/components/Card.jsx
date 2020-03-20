@@ -6,8 +6,7 @@ const ActiveCard = styled.div`
   margin: 0px;
   width: 200px;
   height: 150px;
-  border: 5px solid blue;
-  z-index: 3;
+  border: 2px solid white;
 `;
 
 const HiddenCard = styled.div`
@@ -16,12 +15,19 @@ const HiddenCard = styled.div`
   width: 200px;
   height: 150px;
   opacity: .2;
-  z-index: 3;
 `;
 
 class Card extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    const cardClicked = this.props.i;
+    this.props.clickPhoto(cardClicked);
   }
 
   render() {
@@ -29,7 +35,7 @@ class Card extends React.Component {
     const renderPhoto = photo.photo_url;
     if (mainCard === i) {
       return (
-        <ActiveCard className="active-card">
+        <ActiveCard className="active-card" onClick={this.handleClick}>
           <img src={renderPhoto}
             width="200" />
         </ActiveCard>
@@ -37,7 +43,7 @@ class Card extends React.Component {
     }
 
     return (
-      <HiddenCard className="card">
+      <HiddenCard className="card" onClick={this.handleClick}>
         <img src={renderPhoto}
           width="200" />
       </HiddenCard>

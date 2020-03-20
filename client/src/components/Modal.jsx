@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import Card from './Card.jsx';
 import AllCards from './AllCards.jsx';
 
 const Darken = styled.div`
@@ -35,26 +34,6 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
-const StyleAllCards = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
-`;
-
-const CurrentCard = styled.div`
-  margin: 0px;
-  width: 200px;
-  height: 150px;
-  border: 5px solid blue;
-  z-index: 3;
-`;
-
-const ExtraSpace = styled.div`
-  height: 100px;
-`;
-
 class Modal extends React.Component {
   constructor(props) {
     super(props);
@@ -65,6 +44,7 @@ class Modal extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.nextPhoto = this.nextPhoto.bind(this);
     this.previousPhoto = this.previousPhoto.bind(this);
+    this.clickPhoto = this.clickPhoto.bind(this);
   }
 
   closeModal(e) {
@@ -94,6 +74,13 @@ class Modal extends React.Component {
     });
   };
 
+  clickPhoto(cardNum) {
+    console.log('Photo Clicked!');
+    this.setState({
+      mainCard: cardNum
+    })
+  }
+
 
   render() {
     const { photos } = this.props;
@@ -107,14 +94,16 @@ class Modal extends React.Component {
           <button onClick={e => { this.closeModal(e); }}>
             Exit Gallery
           </button>
-          <button onClick={this.nextPhoto}>Next</button>
-          <button onClick={this.previousPhoto}>Previous</button>
+          <div>
+            <button onClick={this.previousPhoto}>Previous</button>
+            <button onClick={this.nextPhoto}>Next</button>
+          </div>
           <div>{this.props.children}</div>
           <div>
             <img src={mainCard} />
           </div>
           <Wrapper className="slider-wrapper">
-            <AllCards photos={photos} mainCard={this.state.mainCard} />
+            <AllCards photos={photos} mainCard={this.state.mainCard} clickPhoto={this.clickPhoto} />
           </Wrapper>
         </InnerBox>
       </Darken>
