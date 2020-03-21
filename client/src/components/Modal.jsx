@@ -1,6 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import AllCards from './AllCards.jsx';
+import { ArrowIosBack, ArrowIosForward } from '@styled-icons/evaicons-solid';
+import { CloseCircleOutline } from '@styled-icons/evaicons-outline';
 
 const Darken = styled.div`
   display: flex;
@@ -21,18 +23,68 @@ const InnerBox = styled.div`
   left: 0%;
   right: 0%;
   top: 0%;
-  bottom: 25%;
+  bottom: 0%;
   margin: auto;
   background-color: rgba(0,0,0, 0.5);
 `;
 
 const Wrapper = styled.div`
-  position: relative;
+  position: fixed;
+  width: 100%;
   display: flex;
-  z-index: 1;
+  z-index: 4;
   align-items: center;
   justify-content: center;
+  margin-bottom: 1%;
 `;
+
+const ArrowPrev = styled(ArrowIosBack)`
+  color: white;
+  width: 5%;
+  position: absolute;
+  left: 30px;
+  top: 40%;
+  z-index: 10;
+`;
+
+const ArrowNext = styled(ArrowIosForward)`
+  color: white;
+  width: 5%;
+  position: absolute;
+  right: 30px;
+  top: 40%;
+  z-index: 10;
+`;
+
+const OuterCardWrapper = styled.div`
+  position: relative;
+  margin-top: 2%;
+  margin-bottom: 1%;
+  z-index: 1;
+`;
+
+const InnerCardWrapper = styled.div`
+  position: relative;
+  width: 50%;
+  left: 25%;
+  right: 25%;
+`;
+
+const ExitButton = styled(CloseCircleOutline)`
+  color: white;
+  z-index: 3;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  right: -50px;
+  top: -50px;
+`;
+
+const ActiveCard = styled.img`
+  z-index: 2;
+  width: 100%;
+`;
+
 
 class Modal extends React.Component {
   constructor(props) {
@@ -102,17 +154,14 @@ class Modal extends React.Component {
     return (
       <Darken >
         <InnerBox className="inner-box">
-          <button onClick={e => { this.closeModal(e); }}>
-            Exit Gallery
-          </button>
-          <div>
-            <button onClick={this.previousPhoto}>Previous</button>
-            <button onClick={this.nextPhoto}>Next</button>
-          </div>
-          <div>{this.props.children}</div>
-          <div>
-            <img src={mainCard} />
-          </div>
+          <OuterCardWrapper className="outer-card-wrapper">
+            <ArrowPrev onClick={this.previousPhoto} />
+            <ArrowNext onClick={this.nextPhoto} />
+            <InnerCardWrapper className="inner-card-wrapper">
+              <ExitButton onClick={e => { this.closeModal(e); }} />
+              <ActiveCard src={mainCard} />
+            </InnerCardWrapper>
+          </OuterCardWrapper>
           <Wrapper className="slider-wrapper">
             <AllCards photos={photos} mainCard={this.state.mainCard} clickPhoto={this.clickPhoto} />
           </Wrapper>
