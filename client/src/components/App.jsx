@@ -15,19 +15,30 @@ const Container = styled.div`
 `;
 
 const ArrowPrev = styled(ArrowIosBack)`
-  color: black;
+  color: white;
   width: 5%;
   position: absolute;
+  opacity: 70%;
+  background-color: blue;
   left: 30px;
   top: 40%;
 `;
 
 const ArrowNext = styled(ArrowIosForward)`
-  color: black;
+  color: white;
   width: 5%;
   position: absolute;
+  opacity: 70%;
+  background-color: blue;
   right: 30px;
   top: 40%;
+`;
+
+const InnerBannerWrapper = styled.div`
+  position: relative;
+  width: 50%;
+  left: 25%;
+  right: 25%;
 `;
 
 class App extends React.Component {
@@ -69,12 +80,14 @@ class App extends React.Component {
       return (
         <Container>
           <div>
-            <ArrowPrev />
-            <ArrowNext />
-            <Banner
-              showModal={this.showModal}
-              mainPhoto={this.state.photos[0].photo_url}
-            />
+            <InnerBannerWrapper>
+              <ArrowPrev onClick={this.showModal} />
+              <ArrowNext onClick={this.showModal} />
+              <Banner
+                showModal={this.showModal}
+                mainPhoto={this.state.photos[0].photo_url}
+              />
+            </InnerBannerWrapper>
           </div>
           <Modal
             photos={this.state.photos}
