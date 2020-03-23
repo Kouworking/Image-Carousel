@@ -36,6 +36,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 1%;
+  bottom: 20px!important;
 `;
 
 const ArrowPrev = styled(ArrowIosBack)`
@@ -71,13 +72,13 @@ const InnerCardWrapper = styled.div`
 `;
 
 const ExitButton = styled(CloseCircleOutline)`
-  color: white;
-  z-index: 3;
-  height: 100px;
-  width: 100px;
   position: absolute;
-  right: -50px;
-  top: -50px;
+  top: -18px;
+  right: -18px;
+  width: 36px;
+  height: 36px;
+  z-index: 11;
+  color: white;
 `;
 
 const ActiveCard = styled.img`

@@ -1,7 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
 import styled, { css } from 'styled-components';
-import { ArrowIosBack, ArrowIosForward } from '@styled-icons/evaicons-solid';
 import Banner from './Banner.jsx';
 import Modal from './Modal.jsx';
 
@@ -11,27 +10,6 @@ const Container = styled.div`
   flex-direction: column;
   width: 100%;
   text-align: center;
-  background: papayawhip;
-`;
-
-const ArrowPrev = styled(ArrowIosBack)`
-  color: white;
-  width: 5%;
-  position: absolute;
-  opacity: 70%;
-  background-color: blue;
-  left: 30px;
-  top: 40%;
-`;
-
-const ArrowNext = styled(ArrowIosForward)`
-  color: white;
-  width: 5%;
-  position: absolute;
-  opacity: 70%;
-  background-color: blue;
-  right: 30px;
-  top: 40%;
 `;
 
 const InnerBannerWrapper = styled.div`
@@ -81,8 +59,6 @@ class App extends React.Component {
         <Container>
           <div>
             <InnerBannerWrapper>
-              <ArrowPrev onClick={this.showModal} />
-              <ArrowNext onClick={this.showModal} />
               <Banner
                 showModal={this.showModal}
                 mainPhoto={this.state.photos[0].photo_url}
