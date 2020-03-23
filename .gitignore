@@ -1,3 +1,4 @@
+
 ## MAC files ##
 .DS_Store
 
@@ -23,4 +24,8 @@ coverage
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 dist/
+
+.gitignore
+
+db/config.js
 
