@@ -1,8 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../db');
+const cors = require('cors');
 
 const app = express();
+app.use(cors());
 const PORT = 3001;
 
 app.use(bodyParser.json());
@@ -13,13 +15,13 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.get('/', (req, res) => {
 });
 
-app.get('/api/listings', (req, res) => {
+app.get('http://localhost:3001/api/listings', (req, res) => {
   db.getAllListings((err, data) => {
     if (err) {
-      console.log(err);
+     // console.log(err);
       res.sendStatus(400);
     } else {
-      console.log(req.body);
+     // console.log(req.body);
       res.send(data);
     }
   })

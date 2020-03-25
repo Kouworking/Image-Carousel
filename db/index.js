@@ -1,7 +1,11 @@
 const mysql = require('mysql');
-const mysqlConfig = require('./config.js');
+//const mysqlConfig = require('./config.js');
 const faker = require('faker');
-const connection = mysql.createConnection(mysqlConfig);
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  database: "Nicole"
+});
 
 connection.connect();
 

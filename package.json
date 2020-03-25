@@ -21,7 +21,7 @@
   },
   "scripts": {
     "test": "jest --watch",
-    "watch:build": "webpack -d --watch",
+    "build": "webpack -d --watch",
     "start": "nodemon server/index.js",
     "seed": "node db/seed.js"
   },
@@ -54,6 +54,7 @@
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "i": "^0.3.6",
+    "jquery": "^3.4.1",
     "materialize-css": "^1.0.0-rc.2",
     "moment": "^2.24.0",
     "mongoose": "^5.7.3",

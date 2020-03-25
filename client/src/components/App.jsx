@@ -7,38 +7,44 @@ import Modal from './Modal.jsx';
 
 const Container = styled.div`
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  text-align: center;
-  background: papayawhip;
+   justify-content: center;
+  // flex-direction: column;
+  // width: auto;
+  // align: center;
 `;
 
 const ArrowPrev = styled(ArrowIosBack)`
   color: white;
-  width: 5%;
+  width: 10%;
   position: absolute;
   opacity: 70%;
-  background-color: blue;
-  left: 30px;
-  top: 40%;
+  left: 1px;
+  top: 43%;
+  &:hover{
+    cursor:pointer;
+    opacity: 40%
+  }
 `;
 
 const ArrowNext = styled(ArrowIosForward)`
   color: white;
-  width: 5%;
+  width: 10%;
   position: absolute;
   opacity: 70%;
-  background-color: blue;
-  right: 30px;
-  top: 40%;
+  right: 1px;
+  top: 43%;
+  &:hover{
+    cursor:pointer;
+    opacity: 40%
+  }
 `;
 
 const InnerBannerWrapper = styled.div`
   position: relative;
-  width: 50%;
-  left: 25%;
-  right: 25%;
+  width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  
 `;
 
 class App extends React.Component {
@@ -59,7 +65,7 @@ class App extends React.Component {
 
   getPhotos() {
     $.ajax({
-      url: '/api/photos',
+      url: 'http://localhost:3001/api/photos',
       method: 'GET',
       success: data => {
         this.setState({ photos: data });
@@ -79,7 +85,6 @@ class App extends React.Component {
     } else {
       return (
         <Container>
-          <div>
             <InnerBannerWrapper>
               <ArrowPrev onClick={this.showModal} />
               <ArrowNext onClick={this.showModal} />
@@ -88,7 +93,6 @@ class App extends React.Component {
                 mainPhoto={this.state.photos[0].photo_url}
               />
             </InnerBannerWrapper>
-          </div>
           <Modal
             photos={this.state.photos}
             onClose={this.showModal}

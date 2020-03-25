@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS carousel;
+DROP DATABASE IF EXISTS Nicole;
 
-CREATE DATABASE carousel;
+CREATE DATABASE Nicole;
 
-USE carousel;
+USE Nicole;
 
 CREATE TABLE listings (
   listing_id int NOT NULL AUTO_INCREMENT,

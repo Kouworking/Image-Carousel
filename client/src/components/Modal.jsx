@@ -45,6 +45,9 @@ const ArrowPrev = styled(ArrowIosBack)`
   left: 30px;
   top: 40%;
   z-index: 10;
+  &:hover {
+    cursor:pointer
+  }
 `;
 
 const ArrowNext = styled(ArrowIosForward)`
@@ -54,6 +57,9 @@ const ArrowNext = styled(ArrowIosForward)`
   right: 30px;
   top: 40%;
   z-index: 10;
+  &:hover {
+    cursor:pointer
+  }
 `;
 
 const OuterCardWrapper = styled.div`
@@ -71,13 +77,16 @@ const InnerCardWrapper = styled.div`
 `;
 
 const ExitButton = styled(CloseCircleOutline)`
-  color: white;
-  z-index: 3;
-  height: 100px;
-  width: 100px;
+  color: black;
+  //z-index: 3;
+  height: 40px;
+  width: 40px;
   position: absolute;
-  right: -50px;
-  top: -50px;
+  right: -20px;
+  top: -19px;
+  &:hover {
+    cursor: pointer
+  }
 `;
 
 const ActiveCard = styled.img`
@@ -158,7 +167,7 @@ class Modal extends React.Component {
             <ArrowPrev onClick={this.previousPhoto} />
             <ArrowNext onClick={this.nextPhoto} />
             <InnerCardWrapper className="inner-card-wrapper">
-              <ExitButton onClick={e => { this.closeModal(e); }} />
+              <ExitButton size='6' onClick={e => { this.closeModal(e); }} />
               <ActiveCard src={mainCard} />
             </InnerCardWrapper>
           </OuterCardWrapper>
