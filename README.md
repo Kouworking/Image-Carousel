@@ -11,14 +11,14 @@
 
 ## Table of Contents
 
-1. [Usage](#Usage)
+1. [Development](#Development)
 1. [Requirements](#requirements)
 
-## Usage
+## Development
 
-> To start the application, run `npm install` within root directory to install dependencies
-> Seed the application with data by running `npm run seed`
-> Run the application with `npm run start`
+- To start the application, run `npm install` within root directory to install dependencies
+- Seed the application with data by running `npm run seed`
+- Run the application with `npm run start`
 
 ## Requirements
 
