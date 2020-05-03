@@ -1,6 +1,6 @@
-# Project Name
+# Image Carousel for Kouworking
 
-> Project description
+> A reusable image carousel for property listing applications.
 
 ## Related Projects
 
@@ -13,11 +13,12 @@
 
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
-1. [Development](#development)
 
 ## Usage
 
-> Some usage instructions
+> To start the application, run `npm install` within root directory to install dependencies
+> Seed the application with data by running `npm run seed`
+> Run the application with `npm run start`
 
 ## Requirements
 
@@ -25,14 +26,3 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
 - etc
-
-## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install
-```
-
